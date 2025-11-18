@@ -2,10 +2,8 @@
 #include <queue>
 using namespace std;
 
-// We will use a very large value instead of INT_MAX
 const int INF = 1000000000;
 
-// Find index of minimum element in first 'sortedIndex + 1' elements
 int findMinIndex(queue<int>& q, int sortedIndex) {
     int min_index = -1;
     int min_val = INF;
@@ -25,7 +23,6 @@ int findMinIndex(queue<int>& q, int sortedIndex) {
     return min_index;
 }
 
-// Move min element to rear
 void moveMinToRear(queue<int>& q, int min_index) {
     int min_val;
     int n = q.size();
@@ -35,11 +32,10 @@ void moveMinToRear(queue<int>& q, int min_index) {
         q.pop();
 
         if (i == min_index)
-            min_val = curr;  
+            min_val = curr;
         else
             q.push(curr);
     }
-
     q.push(min_val);
 }
 
@@ -64,6 +60,5 @@ int main() {
         cout << q.front() << " ";
         q.pop();
     }
-
     return 0;
 }
